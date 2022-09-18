@@ -1,0 +1,14 @@
+.header {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+.date {
+  text-align: left;
+}
+.searchEngine {
+  display: inline-block;
+  text-align: right;
+}
