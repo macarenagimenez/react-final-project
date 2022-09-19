@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+.body {
+  height: 100vh;
+  background-image: url("./pexels-louis-2101187.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: "Archivo Narrow", sans-serif;
+}
