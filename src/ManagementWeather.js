@@ -21,6 +21,7 @@ export default function ManagementWeather() {
         </Row>
         <div className="infoWeather">
           <Row>
+            {" "}
             <Col>
               <div className="description">
                 <img
