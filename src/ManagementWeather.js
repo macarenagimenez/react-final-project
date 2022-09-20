@@ -5,26 +5,32 @@ import "./ManagementWeather.css";
 import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import { faSearch, faWind } from "@fortawesome/free-solid-svg-icons";
-import { faCloudRain } from "@fortawesome/free-solid-svg-icons";
-import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
+import {
+  faWind,
+  faCloudRain,
+  faCalendarDay,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function ManagementWeather(props) {
-  const [weather, setWeather] = useState({});
-  const [ready, setReady] = useState(false);
+  let [weather, setWeather] = useState({});
+  let [lastCityLoaded, setLastCityLoaded] = useState(null);
 
   function showWeather(response) {
+    console.log(response);
     setWeather({
       temperature: Math.round(response.data.main.temp),
+      description: response.data.weather[0].description,
+      wind: response.data.wind.speed,
+      humidity: response.data.main.humidity,
     });
-    setReady(true);
   }
-  function search(city) {
-    let apiKey = "d9fa039441ee765f866a01bc611a5d61";
-    let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  function search(inputCity) {
+    setLastCityLoaded(inputCity);
+    let apiKey = "b2f2f8716112d43df23731c97b6bce5f";
+    let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${apiKey}&units=metric`;
     axios.get(urlApi).then(showWeather);
   }
-  if (ready) {
+  if (lastCityLoaded === props.cityValue) {
     return (
       <div>
         <Container>
@@ -43,7 +49,7 @@ export default function ManagementWeather(props) {
                     src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
                     alt="icon"
                   />
-                  <span>Cloudy</span>
+                  <span>{weather.description}</span>
                 </div>
                 <span className="temperature">{weather.temperature}</span>
                 <span className="degrees">°C | °F</span>
@@ -55,10 +61,12 @@ export default function ManagementWeather(props) {
                     <FontAwesomeIcon icon={faCalendarDay} /> Today: Wed 10:30hs
                   </div>
                   <div className="windy">
-                    <FontAwesomeIcon icon={faWind} /> Wind:10km/h
+                    <FontAwesomeIcon icon={faWind} /> Wind:{weather.wind}
+                    km/h
                   </div>
                   <div className="humidity">
-                    <FontAwesomeIcon icon={faCloudRain} /> Humidity: 10%
+                    <FontAwesomeIcon icon={faCloudRain} /> Humidity:{" "}
+                    {weather.humidity}%
                   </div>
                 </div>
               </Col>

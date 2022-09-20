@@ -9,7 +9,7 @@ import { Col } from "react-bootstrap";
 import "./Header.css";
 
 export default function Header() {
-  let city = "Rome";
+  let city = "London";
 
   return (
     <div className="header">
