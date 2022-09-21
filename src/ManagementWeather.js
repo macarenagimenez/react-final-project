@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ManagementWeather.css";
@@ -22,6 +23,7 @@ export default function ManagementWeather(props) {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
     });
   }
   function search(inputCity) {
@@ -49,7 +51,7 @@ export default function ManagementWeather(props) {
                     src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
                     alt="icon"
                   />
-                  <span>{weather.description}</span>
+                  <span className="text-capitalize">{weather.description}</span>
                 </div>
                 <span className="temperature">{weather.temperature}</span>
                 <span className="degrees">°C | °F</span>
@@ -58,7 +60,8 @@ export default function ManagementWeather(props) {
               <Col>
                 <div className="parameters">
                   <div className="day">
-                    <FontAwesomeIcon icon={faCalendarDay} /> Today: Wed 10:30hs
+                    <FontAwesomeIcon icon={faCalendarDay} /> Today:{" "}
+                    <FormattedDate date={weather.date} />
                   </div>
                   <div className="windy">
                     <FontAwesomeIcon icon={faWind} /> Wind:{weather.wind}
