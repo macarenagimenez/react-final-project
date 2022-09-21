@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ManagementWeather from "./ManagementWeather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +9,15 @@ import { Col } from "react-bootstrap";
 import "./Header.css";
 
 export default function Header() {
-  let city = "Paris";
+  let [city, setCity] = useState("Paris");
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
 
   return (
     <div className="header">
@@ -20,8 +28,13 @@ export default function Header() {
           </Col>{" "}
           <Col></Col>
           <Col xs={5} className="searchEngine">
-            <form>
-              <input type="search" placeholder="⌨ Type your city..." />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                placeholder="⌨ Type your city..."
+                autoFocus="on"
+                onChange={handleCityChange}
+              />
               <button>
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
