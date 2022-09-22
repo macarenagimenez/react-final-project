@@ -18,7 +18,7 @@ export default function ManagementWeather(props) {
   let weather = {
     temperature: Math.round(props.weatherValue.data.main.temp),
     description: props.weatherValue.data.weather[0].description,
-    wind: props.weatherValue.data.wind.speed,
+    wind: Math.round(props.weatherValue.data.wind.speed),
     humidity: props.weatherValue.data.main.humidity,
     date: new Date(props.weatherValue.data.dt * 1000),
     icon: props.weatherValue.data.weather[0].icon,
@@ -53,7 +53,7 @@ export default function ManagementWeather(props) {
                   <FormattedDate date={weather.date} />
                 </div>
                 <div className="windy">
-                  <FontAwesomeIcon icon={faWind} /> Wind:{weather.wind}
+                  <FontAwesomeIcon icon={faWind} /> Wind: {weather.wind}
                   km/h
                 </div>
                 <div className="humidity">

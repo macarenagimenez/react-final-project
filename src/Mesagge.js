@@ -1,7 +1,5 @@
 import Reac from "react";
-import "./Mesagge.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMusic } from "@fortawesome/free-solid-svg-icons";
+
 export default function Mesagge(props) {
   const codeMapping = {
     "01d": "Don't forget the sunscreen!",
