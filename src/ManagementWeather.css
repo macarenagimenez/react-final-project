@@ -12,8 +12,8 @@
   margin-top: 80px;
 }
 
-img {
-  height: 40px;
+canvas {
+  margin-top: 5px;
 }
 
 .description {
@@ -25,6 +25,8 @@ img {
 }
 
 .description span {
+  position: relative;
+  bottom: 6px;
   margin-left: 10px;
   font-size: 14px;
 }
