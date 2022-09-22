@@ -10,6 +10,7 @@ import "./Header.css";
 
 export default function Header() {
   let [city, setCity] = useState("Paris");
+  let [cityName, setCityName] = useState("Paris");
   let [ready, setReady] = useState(false);
   let [api, setApi] = useState({});
 
@@ -23,6 +24,7 @@ export default function Header() {
     console.log(response);
     setReady(true);
     setApi(response);
+    setCityName(response.data.name);
   }
   function handleCityChange(event) {
     setCity(event.target.value);
@@ -39,7 +41,7 @@ export default function Header() {
     <div>
       <Row>
         <Col xs={3} className="city">
-          <p className="text-capitalize">{city}</p>
+          <p className="text-capitalize">{cityName}</p>
         </Col>{" "}
         <Col></Col>
         <Col xs={5} className="searchEngine">

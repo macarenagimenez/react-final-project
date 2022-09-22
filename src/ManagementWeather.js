@@ -11,6 +11,7 @@ import {
   faWind,
   faCloudRain,
   faCalendarDay,
+  faMusic,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function ManagementWeather(props) {

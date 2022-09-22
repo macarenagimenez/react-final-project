@@ -1,5 +1,7 @@
 import Reac from "react";
-
+import "./Mesagge.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMusic } from "@fortawesome/free-solid-svg-icons";
 export default function Mesagge(props) {
   const codeMapping = {
     "01d": "Don't forget the sunscreen!",
@@ -10,8 +12,8 @@ export default function Mesagge(props) {
     "03n": "Good night for a book :)",
     "04d": "It's nice to sleep",
     "04n": "It's nice to sleep",
-    "09d": "Walks with an umbrella!",
-    "09n": "Walks with an umbrella!",
+    "09d": "I'm singin' in the rain...",
+    "09n": "I'm singin' in the rain... ",
     "10d": "Film and coffe?",
     "10n": "Film and coffe?",
     "11d": "Film and chocolate?",
@@ -21,5 +23,9 @@ export default function Mesagge(props) {
     "50d": "Plsss, be careful!",
     "50n": "plsss, be careful!",
   };
-  return <p className="textMessage">{codeMapping[props.fact]}</p>;
+  return (
+    <p className="textMessage">
+      {codeMapping[props.fact]} <small className="littleIcon"></small>
+    </p>
+  );
 }
