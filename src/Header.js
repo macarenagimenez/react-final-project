@@ -39,7 +39,7 @@ export default function Header() {
     <div>
       <Row>
         <Col xs={3} className="city">
-          <p>{city}</p>
+          <p className="text-capitalize">{city}</p>
         </Col>{" "}
         <Col></Col>
         <Col xs={5} className="searchEngine">
@@ -74,7 +74,7 @@ export default function Header() {
       <div className="header">
         {" "}
         {form}
-        {/* <ManagementWeather weatherValue={api} />{" "} */}
+        Loading...
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FormattedDate from "./FormattedDate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,6 +19,7 @@ export default function ManagementWeather(props) {
     wind: props.weatherValue.data.wind.speed,
     humidity: props.weatherValue.data.main.humidity,
     date: new Date(props.weatherValue.data.dt * 1000),
+    icon: `https://openweathermap.org/img/wn/${props.weatherValue.data.weather[0].icon}@2x.png`,
   };
 
   return (
@@ -35,10 +36,7 @@ export default function ManagementWeather(props) {
             {" "}
             <Col>
               <div className="description">
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-                  alt="icon"
-                />
+                <img src={weather.icon} alt="icon" />
                 <span className="text-capitalize">{weather.description}</span>
               </div>
               <span className="temperature">{weather.temperature}</span>
