@@ -1,7 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
-
+import Mesagge from "./Mesagge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ManagementWeather.css";
 import { Container } from "react-bootstrap";
@@ -29,7 +29,7 @@ export default function ManagementWeather(props) {
         <Row>
           <Col></Col>
           <Col xs={11}>
-            <p className="textMessage">It's f*cking raining</p>
+            <Mesagge fact={weather.icon} />
           </Col>
         </Row>
         <div className="infoWeather">
