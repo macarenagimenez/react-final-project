@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function ManagementWeather(props) {
-  //let [weather, setWeather] = useState({});
   let weather = {
     temperature: Math.round(props.weatherValue.data.main.temp),
     description: props.weatherValue.data.weather[0].description,
@@ -21,26 +20,7 @@ export default function ManagementWeather(props) {
     humidity: props.weatherValue.data.main.humidity,
     date: new Date(props.weatherValue.data.dt * 1000),
   };
-  // let [lastCityLoaded, setLastCityLoaded] = useState(null);
 
-  // function showWeather(response) {
-  //   console.log(response);
-
-  // if (props.weatherValue) {
-  //   setWeather({
-  //     temperature: Math.round(props.weatherValue.data.main.temp),
-  //     description: props.weatherValue.data.weather[0].description,
-  //     wind: props.weatherValue.data.wind.speed,
-  //     humidity: props.weatherValue.data.main.humidity,
-  //     date: new Date(props.weatherValue.data.dt * 1000),
-  //   });
-  // }
-
-  // }
-  // function search(inputCity) {
-  //   setLastCityLoaded(inputCity);
-  // }
-  // if (lastCityLoaded === props.cityValue) {
   return (
     <div>
       <Container>
@@ -69,7 +49,7 @@ export default function ManagementWeather(props) {
               <div className="parameters">
                 <div className="day">
                   <FontAwesomeIcon icon={faCalendarDay} /> Today:{" "}
-                  {/* <FormattedDate date={weather.date} /> */}
+                  <FormattedDate date={weather.date} />
                 </div>
                 <div className="windy">
                   <FontAwesomeIcon icon={faWind} /> Wind:{weather.wind}

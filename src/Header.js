@@ -12,13 +12,12 @@ export default function Header() {
   let [city, setCity] = useState("Paris");
   let [ready, setReady] = useState(false);
   let [api, setApi] = useState({});
-  // firsCity();
 
-  // function firsCity() {
-  //   let apiKey = "b2f2f8716112d43df23731c97b6bce5f";
-  //   let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  //   axios.get(urlApi).then(showWeather);
-  // }
+  function firsCity() {
+    let apiKey = "b2f2f8716112d43df23731c97b6bce5f";
+    let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(urlApi).then(showWeather);
+  }
 
   function showWeather(response) {
     console.log(response);
@@ -70,6 +69,7 @@ export default function Header() {
       </div>
     );
   } else {
+    firsCity();
     return (
       <div className="header">
         {" "}
