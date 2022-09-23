@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherTemperature from "./WeatherTemperature";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import Mesagge from "./Mesagge";
@@ -11,7 +12,6 @@ import {
   faWind,
   faCloudRain,
   faCalendarDay,
-  faMusic,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function ManagementWeather(props) {
@@ -42,8 +42,7 @@ export default function ManagementWeather(props) {
 
                 <span className="text-capitalize">{weather.description}</span>
               </div>
-              <span className="temperature">{weather.temperature}</span>
-              <span className="degrees">°C | °F</span>
+              <WeatherTemperature celsius={weather.temperature} />
             </Col>
             <Col></Col>
             <Col>
