@@ -3,6 +3,7 @@ import WeatherTemperature from "./WeatherTemperature";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import Mesagge from "./Mesagge";
+import WeatherForecast from "./WeatherForecast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ManagementWeather.css";
 import { Container } from "react-bootstrap";
@@ -22,6 +23,7 @@ export default function ManagementWeather(props) {
     humidity: props.weatherValue.data.main.humidity,
     date: new Date(props.weatherValue.data.dt * 1000),
     icon: props.weatherValue.data.weather[0].icon,
+    coordinates: props.weatherValue.data.coord,
   };
 
   return (
@@ -62,6 +64,7 @@ export default function ManagementWeather(props) {
               </div>
             </Col>
           </Row>
+          <WeatherForecast coordinates={weather.coordinates} />
         </div>
       </Container>
     </div>

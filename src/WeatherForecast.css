@@ -1,0 +1,21 @@
+.WeatherForecast {
+  margin: 20px;
+  background-color: #fffdfd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.WeatherForecastDay {
+  background-color: #fffdfd;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.WeatherForecastTemperature {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.WeatherForecastMin {
+  opacity: 0.6;
+}
